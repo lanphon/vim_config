@@ -19,7 +19,7 @@ setlocal fo+=Mm "设置这个之后对中文可以正确断行
 "setlocal makeprg=xelatex\ %<.tex
 
 "alt+f to create a figure environment
-noremap <A-f> o\begin{figure}[htbp]<CR>\centering<CR>\includegrapics[width=.\textwidth]{}<CR>\caption{}<CR>\label{fig::}<CR>\end{figure}<ESC>kkk$i
+noremap <A-f> o\begin{figure}[htbp]<CR>\centering<CR>\includegraphics[width=\textwidth]{}<CR>\caption{}<CR>\label{fig::}<CR>\end{figure}<ESC>kkk$i
 
 "alt+t to create a table environment
 noremap <A-t> o\begin{table}[htbp]<CR>\centering<CR>\begin{tabular}{}<CR>\hline<CR>\hline<CR>\hline<CR>\end{tabular}<CR>\caption{}<CR>\label{tab::}<CR>\end{table}<ESC>7k$i
