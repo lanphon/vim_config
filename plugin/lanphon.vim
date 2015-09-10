@@ -164,3 +164,20 @@ map <F3>b :DoxBlock
 map <F3>c O/*<ESC>xxi* @brief 
 
 noremap \t :NERDTree<CR><C-W>l
+
+
+nmap <C-S-tab> :tabprevious<CR>
+nmap <C-tab> :tabnext<CR>
+map <C-S-tab> :tabprevious<CR>
+map <C-tab> :tabnext<CR>
+imap <C-S-tab> <Esc>:tabprevious<CR>i
+imap <C-tab> <Esc>:tabnext<CR>i
+nmap <C-n> :tabnew<CR>
+"insert mode, <C-n> is used to complete the words
+"imap <C-n> <Esc>:tabnew<CR>
+
+"nmap <C-t> :browse tabnew<CR>
+"imap <C-t> <Esc>:browse tabnew<CR>
+
+" search in virtual mode select part
+vnoremap <M-/> <Esc>/\%V
