@@ -77,7 +77,17 @@ language messages zh_cn.utf-8
 " 新找的500多kB的Monaco字体，特点是窄版，占的行空间减少了。另一个就是字体
 " 有cMAC选项，用这个显示中文正常多了。而之前的没有，只能用cANSI，中文显示
 " 扁平的，看起来很不舒服。
-set guifont=Monaco:h10:cMAC "设置英文字体
+if has('mac')
+	"in MAC, we will use the Manaco directly, and set the size to 12 on RMBP
+	set guifont=Monaco:h12 "设置英文字体
+elseif has('win32')
+	"set guifont=Monaco:h10:cMAC "设置英文字体
+	set guifont=Consolas:h11:cANSI
+elseif has('win64')
+	set guifont=Consolas:h11:cANSI
+else
+	set guifont=Monaco:h10:cMAC "设置英文字体
+endif
 "set gfw=幼圆:h10.5:cGB2312 
 "
 "set spell "设置拼写检查，会在错误单词下游波浪线，将光标放到单词下
