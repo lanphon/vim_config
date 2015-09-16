@@ -181,3 +181,6 @@ nmap <C-n> :tabnew<CR>
 
 " search in virtual mode select part
 vnoremap <M-/> <Esc>/\%V
+
+map <S-F4> :VimwikiAll2HTML<cr>
+map <F4> :Vimwiki2HTML<cr>
