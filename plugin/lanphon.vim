@@ -93,6 +93,9 @@ endif
 "set spell "设置拼写检查，会在错误单词下游波浪线，将光标放到单词下
 "z=就可以得到建议拼写，]s下一个。仅对英文有效。
 
+" Vundle should be used in .vimrc file, or it cannot autoload the vim_scripts
+" installed
+
 filetype plugin indent on "打开自动识别文件类型，使用文件类型plugin以及使用缩进定义文本三项智能
 
 "Toggle Menu and Toolbar
@@ -184,3 +187,4 @@ vnoremap <M-/> <Esc>/\%V
 
 map <S-F4> :VimwikiAll2HTML<cr>
 map <F4> :Vimwiki2HTML<cr>
+
