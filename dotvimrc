@@ -36,6 +36,8 @@ Bundle 'DoxygenToolkit.vim'
 
 Bundle 'vimwiki'
 
+Bundle 'vim-airline/vim-airline'
+
 " 寻找全局配置文件
 let g:ycm_global_ycm_extra_conf = '~/.vim/bundle/YouCompleteMe/cpp/ycm/.ycm_extra_conf.py'
 " 禁用syntastic来对python检查
@@ -67,3 +69,7 @@ let g:ycm_warning_symbol='>*'
 " 不查询ultisnips提供的代码模板补全，如果需要，设置成1即可
 " let g:ycm_use_ultisnips_completer=0
 "
+"
+
+set laststatus=2
+let g:airline#extensions#tabline#enabled = 1
