@@ -133,6 +133,7 @@ source $VIMRUNTIME/macros/matchit.vim
 
 autocmd BufEnter,BufRead,BufNewFile *.m compiler mlint
 autocmd BufEnter,BufRead,BufNewFile *.tex compiler xelatex
+autocmd BufEnter,BufRead,BufNewFile CMakeLists.txt setlocal ft=cmake
 
 
 " set default filetype
