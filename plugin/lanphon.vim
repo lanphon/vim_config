@@ -32,6 +32,7 @@ set ruler "设置标尺
 set number "设置显示行号
 "set vb t_vb = "消除响铃
 set nobackup "无备份
+set noundofile " set no undo file ".un~" generated
 set cursorline "高亮显示当前行
 "set paste "设置粘贴，设置之后自动换行无效
 "set nopaste
@@ -40,6 +41,7 @@ set cursorline "高亮显示当前行
 set display=lastline
 set incsearch "increment search
 set tabstop=4 "set how many spaces a tab use, not used to indent
+set expandtab "expand tab to space
 set shiftwidth=4 "set indent shift width
 set showmatch
 set showcmd "一个完整的命令结束前，在右下角显示这个命令
@@ -114,9 +116,11 @@ map <silent> <F2> :if &guioptions =~# 'T' <Bar>
 au BufEnter *.txt setlocal ft=txt
 
 "default filetype
-let g:do_filetype = 0
-au GUIEnter,BufAdd * if expand('<afile>') == "" | let g:do_filetype = 1 | endif
-au BufEnter * if g:do_filetype | setf txt | let g:do_filetype = 0 | endif
+"let g:do_filetype = 0
+"au GUIEnter,BufAdd * if expand('<afile>') == "" | let g:do_filetype = 1 | endif
+"au BufEnter * if g:do_filetype | setf txt | let g:do_filetype = 0 | endif
+
+autocmd BufEnter * if &filetype == "" | setlocal ft=txt | endif
 
 
 "inoremap ( ()<ESC>i
@@ -189,3 +193,6 @@ vnoremap <M-/> <Esc>/\%V
 map <S-F4> :VimwikiAll2HTML<cr>
 map <F4> :Vimwiki2HTML<cr>
 
+" issue the :VimShellPop, adjust the window to the below, and re-enter the
+" insert mode
+noremap \vs :VimShellPop<CR><Esc><C-W>Ja
