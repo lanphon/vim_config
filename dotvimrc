@@ -35,6 +35,18 @@ Plug 'vim-scripts/DoxygenToolkit.vim'
 
 Plug 'vim-airline/vim-airline'
 
+Plug 'w0rp/ale', {'for' : ['c', 'cpp', 'python', 'cmake', 'markdown']}
+Plug 'mhinz/vim-signify'
+Plug 'kana/vim-textobj-user'
+Plug 'kana/vim-textobj-indent'
+Plug 'kana/vim-textobj-syntax'
+Plug 'kana/vim-textobj-function', { 'for':['c', 'cpp', 'vim', 'java'] }
+Plug 'sgur/vim-textobj-parameter'
+
+Plug 'octol/vim-cpp-enhanced-highlight', {'for' : ['c', 'cpp']}
+"Plug 'Yggdroot/LeaderF'
+
+
 " Initialize plugin system
 call plug#end()
 
@@ -69,7 +81,36 @@ let g:ycm_warning_symbol='>*'
 " 不查询ultisnips提供的代码模板补全，如果需要，设置成1即可
 " let g:ycm_use_ultisnips_completer=0
 "
-"
+" refer to this for this setting: https://zhuanlan.zhihu.com/p/33046090
+noremap <c-z> <NOP>
+let g:ycm_semantic_triggers =  {
+			\ 'c,cpp,python,java,go,erlang,perl': ['re!\w{2}'],
+			\ 'cs,lua,javascript': ['re!\w{2}'],
+			\ }
+
+
+let g:ale_linters_explicit = 1
+let g:ale_completion_delay = 500
+let g:ale_echo_delay = 20
+let g:ale_lint_delay = 500
+let g:ale_echo_msg_format = '[%linter%] %code: %%s'
+let g:ale_lint_on_text_changed = 'normal'
+let g:ale_lint_on_insert_leave = 1
+let g:airline#extensions#ale#enabled = 1
+
+let g:ale_c_gcc_options = '-Wall -O2 -std=c99'
+let g:ale_cpp_gcc_options = '-Wall -O2 -std=c++14'
+let g:ale_c_cppcheck_options = ''
+let g:ale_cpp_cppcheck_options = ''
+
+let g:ale_sign_error = "\ue009\ue009"
+hi! clear SpellBad
+hi! clear SpellCap
+hi! clear SpellRare
+hi! SpellBad gui=undercurl guisp=red
+hi! SpellCap gui=undercurl guisp=blue
+hi! SpellRare gui=undercurl guisp=magenta
+
 
 set laststatus=2
 let g:airline#extensions#tabline#enabled = 1
