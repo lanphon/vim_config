@@ -104,6 +104,8 @@ filetype plugin indent on "打开自动识别文件类型，使用文件类型pl
 "隐藏任务栏
 set guioptions-=m
 set guioptions-=T
+set guioptions-=r
+set guioptions-=L
 map <silent> <F2> :if &guioptions =~# 'T' <Bar>
         \set guioptions-=T <Bar>
         \set guioptions-=m <bar>
