@@ -1,42 +1,42 @@
-filetype off
-set rtp+=~/.vim/bundle/vundle/
-call vundle#rc()
-" let Vundle manage Vundle, required
-Plugin 'gmarik/vundle'
+if empty(glob('~/.vim/autoload/plug.vim'))
+  silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs
+    \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+  autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
+endif
+
+call plug#begin('~/.vim/plugged')
 
 " The following are examples of different formats supported.
 " Keep Plugin commands between here and filetype plugin indent on.
 " scripts on GitHub repos
-Plugin 'tpope/vim-fugitive'
-Plugin 'Lokaltog/vim-easymotion'
-Plugin 'tpope/vim-rails.git'
+Plug 'tpope/vim-fugitive'
+Plug 'Lokaltog/vim-easymotion'
+"Plug 'tpope/vim-rails.git'
+
 " The sparkup vim script is in a subdirectory of this repo called vim.
 " Pass the path to set the runtimepath properly.
-Plugin 'rstacruz/sparkup', {'rtp': 'vim/'}
-" scripts from http://vim-scripts.org/vim/scripts.html
-Plugin 'L9'
-Plugin 'FuzzyFinder'
-" scripts not on GitHub
-" Plugin 'git://git.wincent.com/command-t.git'
-" git repos on your local machine (i.e. when working on your own plugin)
-" Plugin 'file:///home/gmarik/path/to/plugin'
-" ...
+Plug 'rstacruz/sparkup', {'rtp': 'vim/'}
+Plug 'vim-scripts/L9'
+Plug 'vim-scripts/FuzzyFinder'
 
 filetype plugin indent on "打开自动识别文件类型，使用文件类型plugin以及使用缩进定义文本三项智能
 
-Bundle 'Valloric/YouCompleteMe'
+Plug 'Valloric/YouCompleteMe', {'for' : ['c', 'cpp', 'python']}
 
-Bundle 'markdown'
+Plug 'vim-scripts/markdown', {'for' : 'markdown'}
 
-Bundle 'The-NERD-tree'
+Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' }
 
-Bundle 'altercation/vim-colors-solarized'
+Plug 'altercation/vim-colors-solarized'
 
-Bundle 'DoxygenToolkit.vim'
+Plug 'vim-scripts/DoxygenToolkit.vim'
 
-Bundle 'vimwiki'
+"Plug 'vimwiki'
 
-Bundle 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline'
+
+" Initialize plugin system
+call plug#end()
 
 " 寻找全局配置文件
 let g:ycm_global_ycm_extra_conf = '~/.vim/bundle/YouCompleteMe/cpp/ycm/.ycm_extra_conf.py'
